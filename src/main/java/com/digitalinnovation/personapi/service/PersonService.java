@@ -12,6 +12,7 @@ import com.digitalinnovation.personapi.dto.PersonDTO;
 import com.digitalinnovation.personapi.entity.Person;
 import com.digitalinnovation.personapi.mapper.PersonMapper;
 import com.digitalinnovation.personapi.repository.PersonRepository;
+import com.digitalinnovation.personapi.service.exception.PersonNotFoundException;
 
 @Service
 public class PersonService implements Serializable {
@@ -35,5 +36,10 @@ public class PersonService implements Serializable {
 	public List<PersonDTO> listAll() {
 	    List<Person> allPeople = personRepository.findAll();
 		return allPeople.stream().map(personMapper::toDTO).collect(Collectors.toList());
+	}
+
+	public PersonDTO findById(Long id) throws PersonNotFoundException {
+		Person person = personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));	
+		return personMapper.toDTO(person);
 	}
 }

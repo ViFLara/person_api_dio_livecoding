@@ -1,4 +1,4 @@
-package com.digitalinnovation.personapi.dto;
+package com.digitalinnovation.personapi.dto.request;
 
 import java.io.Serializable;
 

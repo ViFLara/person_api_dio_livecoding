@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-import com.digitalinnovation.personapi.dto.PersonDTO;
+import com.digitalinnovation.personapi.dto.request.PersonDTO;
 import com.digitalinnovation.personapi.entity.Person;
 
 @Mapper

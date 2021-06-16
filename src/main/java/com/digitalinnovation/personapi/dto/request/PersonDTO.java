@@ -5,11 +5,10 @@ import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
-
-import com.digitalinnovation.personapi.entity.Phone;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,9 +36,10 @@ public class PersonDTO implements Serializable {
 	@CPF
 	private String cpf;
 	
+	@NotNull
 	private String birthDate;
 	
 	@Valid
 	@NotEmpty
-	private List<Phone> phones;
+	private List<PhoneDTO> phones;
 }
